@@ -1,0 +1,642 @@
+HTML文档包括:
+文档类型声明：<!DOCTYPE html>
+html标签对:<html></html>
+html标签对中的head标签对和波多野标签对:<head></head>,<body></body>  
+
+符号标签:
+1标题标签(加粗):<h1></h1>--<h6></h6>
+2段落标签:<p></p>
+3加粗字体标签<b></b>,<strong></strong>
+4斜体标签:<i></i>,<em></em>
+5下划线:<u></u>
+6删除线:<s></s>
+7无序列表:
+<ul>
+    <li>xxxx</li>
+    <li>xxxx</li>
+</ul>
+8有序列表:
+<ol>
+    <li>xxx</li>
+    <li>xxxx</li>
+</ol>
+9表格标签大类:
+<table border="1-n">(表格边框,数字表示宽度)
+    <tr>
+        <th>xxxxx</th>(表格每列标题)
+        <th>xxxxx</th>
+    </tr>
+    <tr>(表格行)
+        <td>xxxx</td>(表格数据)
+        <td>xxxxxxx</td>
+    </tr>
+</table>
+10超链接:<a></a>,常与属性href="网站链接"使用,还加上target="打开方式",_self是当前窗口打开,_blank是新窗口打开,_parent表示在父窗口打开,_top是在顶层窗口打开
+11换行:<br>
+12创造水平分割线<hr>
+13图片<img>与属性src=""(括号内为图片路径链接)和alt=""(括号内为无法显示图片时的文字),其属性  wdith=""(设置图片宽度),height=""(设置图片高度)
+HTML属性:标签都可以有多个属性例如table的border
+15容器快标签:<div></div>,创建一个能包含其他元素的容器快,用于组织内容,用于布局结构,其属性class=""(nav用于创造导航栏,content用于包裹内容)
+16<span></span>标签:内容样式化文本,包裹一部分文本，便于使用样式,css,js行为.
+15.16通常与css和js一起使用。
+17:表单标签:
+(1)框架(表单内容在form标签内)
+<form >(其属性action=""引号内为URL是服务器提供的API,为输入数据的传向地)
+    xxx
+</form>
+(2)输入:<input>,其中属性有
+1.type="text"创造输入框="radio"创造圆形选框(单选),="password"输入密码,="checkbox"创造方形多选框,="submit"创造提交按钮(一般位于表单尾部)
+2.placeholder=""创建输入框的灰色字,
+3.value=""创建输入框黑色字和更改"提交字样"
+4.name=""让圆形择框变为单选,给多选方框添加属性,引号内内容一致
+(3)在输入(勾选)标签前加入<span></span>或者<label></label> (其for属性使其可以与input,for=""引号内容为input属性id的内容)标签可以给出输入提示  
+
+18.按钮:<button> </button> ,可以与就是JS联合使用,在前一个<>内使用属性onclick=""
+
+属性用法:在开始标签中接属性名="属性值"
+属性:id,class
+
+属性title="xxx"鼠标移到该标签上时显示文字xxx
+
+
+块元素和行内元素：
+块元素(单独成行,其中能包括行内元素和块元素):<div></div>,<p></p>,<h1></h1>--<h6></h6>,<ul></ul>,<ol></ol>,<li></li>,<table></table>,<form></form>等
+行内元素(z在同一行呈现,不能包括块元素):<span></span>, <a></a>,<strong></strong>,<em></em>,<img>,<br>,<input>
+行内块元素(水平上排列，但是可以设置宽度，高度，内外边距等块级元素属性，可以包括行内元素或块级元素):<img>
+元素之间转换:在元素中添加属性style="display:inline(改为行内元素)inline-block(改为行内块)bolck(改为块)>;"
+
+
+
+
+
+CSS:使用模板：
+选择器{
+    属性一:属性值一;
+    属性二:属性值二;
+}
+属性有:1.color(颜色),2.font-size(字体大小),3.background-color(背景颜色)
+4.font-family(设置字体 ),5.font-weight(字体粗细0),6font(包括所有字体设置)
+7.line-height(设置行距),(块元素和行内块元素可以定义宽高,图片设置一个就可以按照比例放缩 )8.width(宽度),9.height(高度)
+10.border-....,11.content-....,12.padding-....,13.margin-....
+(四个方向的属性时对应顺序为上右下左)
+14.text-align(调节行内位置,文字居中等等),border-collapse:collapse;(合并边框)
+
+选择器：
+1元素选择器:直接写元素名
+2类选择器:.类名(就是class=""中引号内的内容)
+3id选择器:#id名(就是id=""中引号内的内容)
+4通用选择器(选择所有元素)
+5子元素选择器
+6后代选择器
+7并集选择器
+8伪类选择器
+
+导入方式:优先级1>2>3
+1内联样式:在标签中用style=""属性定义
+2内联样式表:在<head></head>标签中用style定义
+如
+    <style>
+        h3{
+            属性:属性值;
+        }
+    </style>
+3外联样式表(允许在多个网页使用相同css样式):将css单独文件,在head中使用<link rel="stylesheet" href="">导入,引号内是css文件地址
+
+盒子模型:
+属性名(都是复合属性):
+内容(content)
+内边距(padding)
+边框(border):属性值设置宽度(直接写宽度大小),设置样式(直接写样式名),设置颜色(直接写颜色名)等
+外边距(margin)
+
+网页布局：
+1.标准流
+2.浮动(子元素使用):可以让多个块级元素在同一行排列且不会有缝隙(行内块有缝隙)且会根据宽度是否另起一行，只会在父元素内部浮动
+特性:脱离标准。多个浮动，一行显示，顶部对齐。具备行内块元素特性 
+选择器{
+    float:left/right/none;
+}
+3.定位(控制元素位置)
+1相对定位:相对于元素在文档流中的正常位置进行上下左右移动
+position:relative;left:xx;right:xx;top:xx;bottom:xx:表示距离原本位置最左右上下偏离xxx距离
+2绝对定位:相对于最近的定位后的父级元素进行定位(脱离文档流!!!)
+position:absolute;left:xx;right:xx;top:xx;bottom:xx:表示距离原本位置最左右上下偏离xxx距离
+3固定定位:相对于浏览器窗口进行定位(脱离文档流)(类似广告)
+position:fixed;left:xx;right:xx;top:xx;bottom:xx:表示距离页面左右上下的距离
+4.flex和grid(自适应布局)
+  
+
+
+
+
+
+
+JS
+导入方式
+1.使用标签<script>xxxx</script>(xxxx为JS代码)可以放在head内或者body内
+2.外部引入,在head中使用<script src=""></script>引号内为js代码路径
+
+变量与数据类型
+变量:
+1.var x;声明一个正常变量，具有函数作用域(不常用)
+2.let x=;声明一个变量，具有块级作用域，更安全灵活
+3.const x=;声明一个常量
+赋值为null为明确空值,声明但不赋值为undefined
+
+JS语言代码(最基础最重要)
+1.console.log(''):在控制台内打印单引号内内容(也可以用于函数的执行括号内无引号直接跟变量名)
+2.alert(""):在页面中弹窗
+
+//注释
+
+控制语句
+1.条件语句:if,else if,else
+if (条件){
+    xxxx
+}
+
+在上一个if条件为假时,判断else if
+if和else if 都为假时,执行else 
+
+2.循环语句for ,while ,do while.for一般用于有限循环,while一般用于无限循环
+for(初始化表达式;循环条件;迭代器){
+    循环代码
+}
+初始化表达式为给一个变量赋初始值
+
+迭代器为每执行完一次需要执行的内容i++和i+=1是i=i+1的意思
+
+while(循环条件){
+    循环代码
+    迭代代码
+}
+break和continue(可以与if使用):
+break结束循环
+continue跳过当前循环剩余代码,执行下一循环
+等于是==
+
+
+函数:自己定义一个函数便于后面使用.使用时再调用
+声明(定义函数):
+function 函数名(参数1,参数2,参数3){
+    函数代码
+    return 返回值;(如果没有返回值可以不写)
+}
+调用时:
+函数名(参数值);
+作用域:在函数内部声明的变量具有局部作用域，在外部声明的变量具有全局作用域.
+
+事件处理(与用户交互相应):
+事件(函数触发的条件):
+onclick:点击
+onmouseover:鼠标经过
+onmouseout:鼠标移出
+onchange:文本内容改变事件
+onselect:文本框被选中
+onfocus:光标聚集
+onblur:移开光标
+绑定(添加)事件的方式
+1.HTML属性xxxx(上述属性值)="函数名()"(要先写好函数)
+2.DOM属性
+3.addEventlistener方法
+
+DOM(通常与JS一起使用,联系JS代码和html中的标签元素等)
+使用dom获取html标签元素的方法(js代码中使用):
+1.var或者let   xxxx(变量名) =  document.getElementById('xxx')           //id="xxx"
+2.var 或者let  xxxx(变量名) =  document.getElementVByClassName('xxx')[数字为索引查找第几个class,从0开始]    //xxx为类名
+3var或者let    xxxx(变量名) =  document.getElementsByTagName('标签名')[索引值]     //div等
+4.var或者ler   xxxx(变量名) =  document.getElement
+5.var或者let   xxxx(变量名) =  document.getElement
+
+然后可以进行如下操作   
+变量名.innerHTML='xx'    用于修改文本,xx为系统可解析内容,变量名为文本的位置    
+变量名.innerText='xxx'   用于修改文本,xxx问纯文本
+变量名.color='颜色名(red等)'
+变量名.fontSize='尺寸大小(20px等)'
+变量名.style的属性= '' 
+变量名.事件名=function(){
+    函数代码
+}
+也可以使用
+变量名.addEventListener('触发方式' (click等),function(){
+    函数代码
+})
+  
+关键字this,用在()内表示该参数   
+
+
+
+JS函数(通常要在前面加一个let/var 变量名= )
+变量名.rows.length;(获取行数)
+变量名.insertRow/Cell();插入行/列,括号内为插入位置,可以用索引0,1,2,3代替,插入第几行的列时，变量名为该行的变量名
+变量名.parentNode;获取该节点的父节点
+变量名.cells[];获取变量名行的第n列,[]内为0.1.2.3表示索引
+变量名
+prompt("");(浏览器自带的输入弹窗，""内为输入提示)
+
+
+
+
+DOM对象常用方法(在前面要加上变量名.)
+appendChild()        把新的子节点添加到指定节点
+removeChild()       删除子节点(括号内为子节点.前面为父节点 )
+repleaceChild()      替换子节点
+insertBefore()      在指定的子节点前面插入新的子节点
+createAttribute()     创造属性节点
+creatElement()      创造元素节点
+creatTextNode()        创造文本节点
+getAttribute()      返回特定属性值
+
+function做函数名时为匿名函数,没有函数名,不能在别的地方调用
+
+
+
+Flex弹性盒子
+概念:采用flex布局的元素被称为flex容器(flex container),容器中的子元素被称为flex项目(flex item),是容器成员
+水平轴是主轴,开始于main start,结束于main end
+竖直轴是交叉轴,开始于cross start,结束于cross end
+子元素的水平大小为main size,竖直大小为cross size
+
+设置方法在大盒子中css的style中使用display:flex;
+
+
+Flex容器的属性:
+flex-direction;决定主轴的方向(项目的排列方向),属性值如下:
+1.row(默认值)   主轴为水平，从左往右
+2.row-reverse   主轴为水平，从右往左
+3.column        主轴为竖直，从上往下
+4.column-reverse 主轴为竖直，从下往上 
+
+flex-wrap;设置换行方式,属性值如下:
+1.nowrap(默认值)   不换行(列)
+2.wrap            主轴为横向时：从上到下换行。主轴为纵向时，从左到右换行
+3.wrap-reversze   主轴为横向时：从下到上换行。主轴为纵向时，从右到左换行
+
+flex-flow;它是flex-direction和flex-wrap的简写形式;
+
+justify-content;定义项目在主轴上的对齐方式，属性值有:
+1.flex-start(默认)     与主轴起点对齐
+2.flex-end           与主轴终点对齐
+3.center           与主轴中点对齐
+4.space-between     两端与主轴起点和终点对齐，项目之间间隔相等
+5.space-around      每个项目两侧间隔相等，项目之间间隔比项目与边框的间隔大一倍
+6.space-evenly      同上，但任何间隔都相等
+
+align-items;定义项目在交叉轴上的对齐方式,属性值有:
+1.如上
+2.如上
+3.如上
+4.baseline      项目的第一行文字的基线对齐
+5.stretch(默认值)      如果项目未设置高度或者设置为auto,项目将占满整个容器的高度
+
+align-content;多轴线(一个主轴和一个交叉轴一起算一个轴线)对齐方式,属性值与如上两个相同
+
+
+
+
+响应式布局和移动端显示(后续自己查询)
+响应式布局方法
+1.通过rem,vw/vh等单位实现在不同设备上显示相同比例进而实现适配
+2.响应式布局，通过媒体查询'@media'实现一套HTML配合多套CSS实现 
+
+
+rem和px一样是长度单位,但是px是绝对长度单位,rem是相对长度
+使用rem之前要先在head的style中写下
+html{
+    font-size:nnnpx;       nnn为数字
+}
+多少rem,长度就是上述的多少倍
+
+在js原码中,
+
+
+
+jQury:
+引入：在<head></head>中 使用<script src=""></script>引号内为jq代码路径
+使用：在<script></script>中输入代码:
+$(document).ready(function(){          简洁版:$(function(){
+    输入所需代码                                  输入所需代码
+})                                            })
+
+
+
+进阶简洁版(联系JQ代码和html中的标签元素等):
+$(父标签名  "#id名"或者".class名"或者"标签名").on("事件",function(){
+    代码                  (若是标签名则选中所有标签)
+})
+(父标签名可以没有，有的话表示选中该父标签中的子标签)
+
+
+事件有,click(单击),dbclick(双击),mouseenter(鼠标经过),mouseleave(鼠标移开),mousedown(鼠标按下)
+          mouseup(松开鼠标)
+以下为使用该版的事件：
+该版
+$(同上).事件名(function(){
+    代码
+})
+事件有:hover(鼠标经过和移开,需要两个用,隔开的fuction对应两个事件),focus(点击此处后获取光标同时可以获取一个值)
+      blur(点击别处后失去光标),
+
+代码(通常嵌套在事件中，事件发生后执行),使用方式:$(xx).代码名()
+
+show()(显示，通常嵌套在别的$中show()括号中没有function直接结束),hide()(隐藏,使用同上),toggle()(显示时隐藏，隐藏时显示使用同上)
+fadeIn()(淡入，括号内为淡入过程时间，使用同上),fadeOut(淡出，使用同上),slideDown(滑入,使用同上),slideUp(滑出，使用同上),slideToggle
+css("css属性","css属性值")  
+选中奇偶项标签，在上述标签(或者id,classm名)后面加:even选择奇数,加odd选择偶数
+选中某一项标签,在上述$(xx)后加入  .eq(索引值)
+
+动画animate():
+使用(常嵌套在事件中):$(xx).animate({
+    属性(多个属性之间换行时，每行后用","隔开)
+})
+属性有:left/right/up/down:"npx"    (表示前进到距离最原本位置最左右上下偏离n距离,使用前需要更改使得标签position为绝对定位或者相对定位)
+     opacity:'xx'     (xx为透明度)         上述可以变成动态,可以设置left等:后的值为一个变量，使得每点一次就前进一点
+     width:""
+     height:""
+       例如;属性是color,属性值为white
+在属性前加上.stop() ,表示事件不触发立马停止
+链:多个代码可以同时在一个$中使用,
+如:$(xx).代码1().代码2({
+    代码2中代码
+}).代码3()
+
+获取文本格式:$(xx).text()
+获取标签格式$(xx).html()
+获取输入框内的文本$(xx).val("")    ""内为更改后的属性值     
+获取当前点击的值时$(this).xxxx
+获取属性值:$().attr("属性名","xxxx")   xxxx表示更改后的属性值(可以是文字，路径等等)
+获取父级元素:$(子元素).parent("")  括号内为父级标签
+                          后加s可以获取父级的父级
+获取子级元素:$(父元素).children()
+获取一系列的亲属$(该元素).find("亲属标签")
+获取兄弟:$("父级元素   该元素").siblings("指定获取某个兄弟")
+获取下一个兄弟                .next
+获取上面一个兄弟              .prev
+获取下面全部的兄弟            .nextAll
+
+留言出现:$(出现的位置).slideDown().append("<>"+$(xxx).xx()+"<>") 俩引号内为想让留言出现的标签形式  
+                 留言要先隐藏       如果想要新留言出现在前面,不用append用prepend而before,after分别在留言框前后追加
+留言删除（需要绑定其他事件）:$().remove()   前()为删除的内容
+
+
+
+
+
+Ajax(异步无刷新技术，前后端交互)
+jqury调用ajax方法:
+$.ajax({
+    type : ""    get/post  (请求方式) post请求需要服务器支持，没有只能用get   
+    url:  ""   请求地址url
+    async: ""    是否异步,默认true表示异步
+    data :{
+        xxx:"ajax的数据 "      如果没有参数就不需要设置
+
+    }     (发送到服务器的数据)  
+
+
+    dataType(默认是文本): "json"   预期服务器返回的数据类型为json格式,如果是json格式,在接手到返回值时会自动封装成json对象(数组)..如果不是json,会转换成json(前提是要满足格式)
+    contentType: ""   设置请求头
+    success:function(形参名){
+        代码
+        console.log(形参名)   是字符串或者json数组
+        var 随便一个变量名:=JSON.parse(形参名)   形参名代表返回的数据 把字符串转换成json中的数组,方便拿数据,如果本来就是json数据,不要再转换
+        (在此dom操作,把数据放到body中)
+        创造元素节点(ul等) 
+        //遍历放回的数据数组
+        for(var i=0;i<data.length; i++){
+            (得到数组中每一个元素)
+            var 变量名 =data[i];
+            在此创造ul和li标签并把li放到ul内
+            jQuery创建元素:
+var 变量名 = $("<ul></ul>")或者是$("<li>"+li中间的文本+"</li>")
+                                        此文本可以是ajax调用数据中的变量,该使用方法  xx(上述接收数据的变量名).ajax数据中的变量名
+将li放到ui中:   ul.append(li);
+        }
+        //将ul放到body中
+        $("body").append(ul) ; 
+    }  请求成功时调用此函数           
+
+
+    error: ""   请求失败时调用此函数
+
+    上述参数用不到就不写.可能就写下面这四个type,url,data,success
+})
+(可以把整个ajax放到button的点击触发函数中，嵌套即可)
+
+$.get调用请求(代替$.ajax)   
+规定请求方式为get
+1.只需要请求，没有参数没有返回值(只是发送一个数据给后台，不管后续只是发送)
+2.发送请求，需要传参数给后台，没有返回值
+3.发送请求，不需要传参数给他，有返回值
+4.最完整:发送请求有参数有返回值
+语法：
+        $.get("请求地址","请求参数",function(形参){         形参用于接收返回的数据
+                         请求参数没有用{}代替(不要引号)
+
+
+        })
+如果是post调用请求,就把get换成post就行
+
+$.getJSON与上述post和get一样,区别是要求返回的数据格式是json格式
+注:getjson方式要求返回的数据必须满足json格式
+
+
+Node.js :
+
+
+
+
+vitepress:
+1.安装:
+新建文件夹,在新文件夹内打开cmd窗口.输入 pnpm add -D vitepress 安装
+查询pnpm版本:pnpm -v
+查询node版本:node -v  在编写github工作流时候要用node版本
+
+2.初始化vitepress: pnpm vitepress init,然后回车回车,主题选第二个,不使用TS,要添加npm脚本
+
+3.启动:vscode打开文件夹,然后启动项目,新建终端,输入:pnpm run docs:dev,然后等待网址,然后在浏览器输入网址
+
+4.美化主页(9个地方):
+9:最下方:在config.mjs, defineConfig themeConfig文件底部配置:
+配置为:footer:{
+    copyright:"Copyright@ 2023 Albert Zhang",        (footer上一行末端加个逗号)
+}
+
+2-6从上到下的中间字:在index.md文件中改,对应关系为name-2,,text--3,tagline--4,,actions-5,features-6,     
+actions内部(两个按钮所以重复两次):
+theme:有几个选项主题可以选
+text: Markdown  按钮的文字
+link: 跳转的地址,可以输入网址
+features内部
+details: 大按钮的文字
+
+1.7.8顶部栏:在config.mjs中配置,对应关系为 title-1,nav-7,socialLinks-8   description不用改
+nav内部:
+text: '文字'
+link: 跳转地址,可以是网址也可以是本地相对地址
+nav设置下拉⬇:text后面的link换成items:[
+{text:'',link:''}
+{text:'',link:''}]
+socialLinks内部:
+icon:'图标名'
+link:'图标点击后跳转地址'
+
+5.主页扩展
+图片美化    找图片图标的网址:https://www.iconfont.cn/
+下载好之后挪到public文件夹中(新建一个文件夹),然后在index.md中的hero内添加一个  image:
+                                                                             src: /background.png   /后面的是public文件中的图片名
+                                                                             alt: 背景图片   冒号后加空格!!
+logo配置:在config.mjs的themeconfig中添加  logo:'/logo.png',
+6.美化文章页官方默认是三边栏:
+sidebar左侧目录栏(可以是数组可以是对象) (左边每一个导航都是一个markdown文件):
+sldebar内部数组[]中包含多个{}每个{}之间在目录处会用横线隔开,一个{}中可以有多个文字跳转
+text:'小标题'(不跳转)
+items:[
+{text:'文字',link:'跳转链接'},
+{同上}]      有脚本可以自动化添加左边栏
+
+右边栏是标题,是本页内的标题,点击后去到本页标题处
+右边栏包括上方的大标题(不跳转),和小标题跳转:在config.mjs处themeConfig下增加
+outlineTitle: "文字"
+outline:[2,6],         (写了这两个之后就可以去相应的md文件中添加标题了  多少的#号就是几级标题 )
+
+next page和last page 按钮处也可以自定义
+7.文章页扩展
+配置两边栏:在config.mjs的themeConfig配置
+sidebar: false      关闭侧边栏
+aside:"left",     设置右边栏左边显示  这两行代码放到下面
+然后在vitepress theme style.css里面配置css调整位置,加到最后
+css代码:浏览器F12中找到想要改的元素块,在右边样式里找到代码,然后复制放到css文件最后,删除[data -v],更改px大小,@media不要改
+
+8.美化地址栏icon(网站最最顶部的图标):
+在config.mjs defineConfig 下面直接配置:
+配置内容为: head: [["link",{ rel: "icon", href: "/xxx.png"}]]      xxx.png为public文件内的图标名
+
+9.设置搜索框
+在config.mjs defineConfig内的themeconfig中配置
+搜索框代码:
+search:{
+    provider: "local",
+    opition: {
+        translations: {
+            button: {
+                buttonText: "搜索文档",
+                buttonArialabel: "搜索文档",
+            },
+            modal: {
+                noResultsText: "无法找到相关结果",
+                reserButtonTitle: "清楚查询条件",
+                footer: {
+                    selectText: "选择",
+                    navigateText: "切换",
+                },
+            },
+        },
+    },
+},
+
+
+10.github pages部署(不需要服务器,支持CI/CD(修改之后自动更新)):
+1直接创建仓库,不要README
+2初始化仓库 git init  直接在vscode的终端中打入该代码(要先安装git)
+3然后在大文件夹中添加文本文档名字为:.gitignore  (txt也要删除掉,不要扩展名),然后删除.git文件夹
+在vscode中为.git添加内容:
+node_modules
+.DS_store
+dist
+dist-ssr
+cache
+.cache
+.temp
+*.local
+表示忽略以上内容,不添加到github仓库中
+4在终端处输入 git init
+5添加本地所有文件到仓库:在终端输入 git add    会出现换行符不兼容问题不用管
+6创建一次提交:在终端输入 git commit -m "first commit"
+7添加远程仓库地址到本地:在终端输入 git remote add origin 一个地址(该地址在GitHub刚刚创建的仓库里的蓝色框下面的第一个浅蓝框内复制)该地址是github仓库地址
+8推送项目到GitHub: 终端输入 git push -u origin master   -u表示以后再推送不用指定源(origin)和分支(master)   然后就可以再github仓库刷新看到了
+9选择GitHub actions: 在GitHub中点击settings,然后点击pages,再点击source,选择GitHub actions
+10设置工作流: 在GitHub中点击Actions,然后点击第三行蓝色字
+11然后再重命名并设置deploy脚本:在vitepress官方文档 https://vitepress.dev/guide/deploy#github-pages 中复制代码到10出现的输入框中
+11中,使用pnpm的话需要安装并添加到环境变量,pnpm版本要与node版本一样.     如果用npm部署参考该网站: https://hellohao096.github.io/hellohao/posts/GitHub%20Action一键部署个人博客.html
+12重命名,点击提交: 重命名 :在刚刚的GitHub页面上的小输入框重命名为:deploy.yml 然后点右边的绿色按钮 继续点绿色
+13等待,查看域名:等等之后在settings的pages内查看域名 蓝色网址
+14添加(push)一下.nojekyll文件(直接在vscode的大文件夹里新建文件),空的就行.然后在终端输入
+git add . 回车
+git commit -m "添加.nojekyll文件" 回车
+git push 回车 
+如果失败,可能是本地版本和远程版本可能不一样解决方案:在终端输入 git pull origin master 回车之后然后再重新 git push 
+然后回到仓库code有小棕色点是表示正在重新编译,需要等待很久
+
+
+还有需要注意的点(提前做好):需要在config.mjs中的defineConfig 中(最前面就号)添加 
+base: "/大文件名/"        在head中的href中图标地址的前面加上/大文件(仓库文件名)名/
+
+11.可以自定义域名(暂时用不到)
+
+12.添加社交图标(在前面的时候做这一步):在config.mjs的 sociallinks中新增一个
+{
+    icon:{
+        svg: '<svg 复制的内容></svg>'
+    },
+    link: "跳转网址"
+},
+
+svg获得方法:在浏览器搜索iconfont,阿里开源,在其中搜索想要的图标,点击赋值svg代码
+
+
+添加新内容时,在原文件更改后在终端输入: git add . 回车之后 git commit -m "添加的新内容" 回车 然后在终端输入: git push origin master 
+等待即可
+
+
+
+
+进阶学习:
+1.Vue.js
+2.微信小程序
+3.使用Vue开发微信小程序
+三者无先后顺序
+
+
+C语言
+//常量和变量：weight=50,
+
+//数据类型:
+int a = 1;
+float b =1.01;
+char c = 'dfsfdfsdadsadd' ;
+//bool 布尔 1:true 0:false;
+
+//算术运算符： 
+//+  -   *   /  %(取余)  ++（自加）  --（自减）
+//自加自减   ： ++i是先算后用    i++是先用（赋值）再算
+
+//关系运算符，比较检验，并返回布尔值（真1否0）
+//等于==   不等于!=   大于>   大于等于>=
+
+//逻辑运算符，返回布尔值
+//与&&   或||    非!    
+
+//表达式和值：
+//表达式：6-5      值为1
+//       c=3+8      值为11
+//        5>3       值为true（1）
+//语句：   表达式;
+
+//换行\n   放在“”内
+
+//%d对应整数型
+//%f对应浮点型，%和f之间.2表示保留两位小数
+//%c对应字母
+
+//printf输出,要搭配""和%dfc使用，格式（"xxxxx%dcf",%dcf对应的变量）
+//scanf输入，格式:scanf("格式字符串即%dcf",&xx变量,&xx变量)
+//
+//if和else if以及else的运用    
+//
+//swich的运用break和default
+//
+//
+//
+//
+//
